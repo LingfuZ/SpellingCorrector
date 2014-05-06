@@ -72,12 +72,12 @@ public class Words implements Trie {
 
 //        Return a word node in alphabet
         private WordNode getNode(char character) {
-
+            return null;
         }
 
 //        Check if there is a word node exist at character index position
         private boolean hasNode() {
-
+            return false;
         }
 
 //        Create a new word node at corresponding character index
