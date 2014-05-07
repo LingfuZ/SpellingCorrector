@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="358be506-8868-40c3-a166-8d6e2d66a885" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spell/Spell.java" afterPath="$PROJECT_DIR$/src/spell/Spell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spell/Trie.java" afterPath="$PROJECT_DIR$/src/spell/Trie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spell/Words.java" afterPath="$PROJECT_DIR$/src/spell/Words.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/spell/test.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpellingCorrector.iws" />
@@ -415,12 +413,16 @@
       <created>1399413667919</created>
       <updated>1399413667919</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Testing Trie.toString()">
+      <created>1399491618277</created>
+      <updated>1399491618277</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -438,7 +440,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -464,7 +466,8 @@
     </option>
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Psedo coding Spell and Words" />
-    <option name="LAST_COMMIT_MESSAGE" value="Psedo coding Spell and Words" />
+    <MESSAGE value="Testing Trie.toString()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Trie.toString()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
