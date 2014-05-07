@@ -7,11 +7,11 @@ public class Words implements Trie {
 
 //    Fields
 //    number of unique words stored
-    private int wordCount = -1;
+    private int wordCount = 0;
 //    number of word nodes contained
-    private int nodeCount = -1;
+    private int nodeCount = 0;
 //    root word node
-    private WordNode root = new WordNode();
+    private Node root = new WordNode();
 
     public Words() {
 
@@ -25,13 +25,29 @@ public class Words implements Trie {
          * Create a word node if there is none
          * Get the word node if there is existing one
          * Increment the node count after create a new node
-         * After add the word, increment the word count
+         * After add the word, increment word frequency
+         * If the word frequency is 0, increment the unique word count
          */
+
+        Node currentNode = root;
+        for (int i = 0; i<word.length(); i++) {
+            char currentChar = word.charAt(i);
+            if (currentNode.hasNode(currentChar)) {
+                currentNode = currentNode.getNode(currentChar);
+            } else {
+                currentNode = currentNode.createNode(currentChar);
+                nodeCount++;
+            }
+        }
+
+        if (currentNode.getValue() == 0) {
+            wordCount++;
+        }
+        currentNode.incrementValue();
     }
 
     @Override
     public Node find(String word) {
-
         /**
          * Similar to add method
          * Iterate through each character of thw word
@@ -40,6 +56,20 @@ public class Words implements Trie {
          * If last word node returns 0 count then return null
          * Otherwise return the last word node.
          */
+
+        Node currentNode = root;
+        for (int i = 0; i < word.length(); i++) {
+            char currentChar = word.charAt(i);
+            if (currentNode.hasNode(currentChar)) {
+                currentNode.getNode(currentChar);
+            } else {
+                return null;
+            }
+        }
+
+        if (currentNode.getValue() != 0) {
+            return currentNode;
+        }
 
         return null;
     }
@@ -54,40 +84,120 @@ public class Words implements Trie {
         return nodeCount;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        return root.buildWord(result);
+    }
+
+    @Override
+    public int hashCode() {
+        return -1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return false;
+    }
+
     public class WordNode implements Trie.Node {
 
 //      Fields
-//        The size of the alphabet
-        private final int ALPHABET_SIZE = 26;
-//        An array represents alphabet list
-        private WordNode alphabet[] = new WordNode[ALPHABET_SIZE];
-//        count of how many times word appears
-        private int count = -1;
+
 //        lowercase a for finding the index of characters
         private final char LOWERCASE_A = 'a';
+//        An array represents alphabet list
+        private Node alphabet[] = new WordNode[26];
+//        count of how many times word appears
+        private int count = 0;
 
         public WordNode() {
 
         }
 
 //        Return a word node in alphabet
-        private WordNode getNode(char character) {
-            return null;
+        @Override
+        public Node getNode(char character) {
+            /**
+             * Get the index of input character
+             * Return Node at index location
+             */
+            int index = character - LOWERCASE_A;
+            return getAlphabet()[index];
+        }
+
+        @Override
+        public void incrementValue() {
+            count++;
         }
 
 //        Check if there is a word node exist at character index position
-        private boolean hasNode() {
+        @Override
+        public boolean hasNode(char character) {
+            int index = character - LOWERCASE_A;
+            Node target = getAlphabet()[index];
+            if (target != null) {
+                if (target.getClass() == this.getClass()) {
+                    return true;
+                }
+            }
             return false;
         }
 
 //        Create a new word node at corresponding character index
-        private void createNode(char character) {
-
+        @Override
+        public Node createNode(char character) {
+            /**
+             * Get the index of the input character
+             * Create a new word node object
+             * Insert this word node in alphabet array at index position
+             */
+            int index = character - LOWERCASE_A;
+            Node newNode = new WordNode();
+            getAlphabet()[index] = newNode;
+            return newNode;
         }
 
         @Override
         public int getValue() {
             return count;
         }
+
+        private Node[] getAlphabet() {
+            return alphabet;
+        }
+
+        @Override
+        public String buildWord(StringBuilder path) {
+            Node currentNode = this;
+
+            for (int i = 0; i < alphabet.length; i++ ) {
+                char currentChar = getCharFromA(i);
+                if (currentNode.hasNode(currentChar)) {
+                    currentNode = currentNode.getNode(currentChar);
+                    path.append(currentChar);
+                    currentNode.buildWord(path);
+                    if (currentNode.getValue() > 0) {
+                        path.append(" " + currentNode.getValue() + "\n");
+                    }
+                }
+            }
+
+            // Node doesn't have children
+            if (currentNode.equals(this)) {
+                if (currentNode.getValue() > 0) {
+                    path.append(" " + currentNode.getValue() + "\n");
+                    return path.toString();
+                }
+            }
+
+            return path.toString();
+        }
+
+        private char getCharFromA(int distance) {
+            int asciiValue= (int)'a' + distance;
+            return Character.toChars(asciiValue)[0];
+        }
+
     }
 }

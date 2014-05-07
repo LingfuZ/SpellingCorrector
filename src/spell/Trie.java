@@ -61,6 +61,43 @@ public interface Trie {
 		 * @return The frequency count for the word represented by the node
 		 */
 		public int getValue();
+
+        /**
+         * Check if node has descent node for character c
+         *
+         * @param c
+         * @return true if descent node found, otherwise return false
+         */
+        public boolean hasNode(char c);
+
+        /**
+         * Create a descent node for character c
+         *
+         * @param c
+         * @return new created node
+         */
+        public Node createNode(char c);
+
+        /**
+         * Get the descent node for character c
+         *
+         * @param c
+         * @return descent node represents c
+         */
+        public Node getNode(char c);
+
+        /**
+         * Increment count value by one
+         */
+        public void incrementValue();
+
+        /**
+         *
+         * @param s
+         * @return
+         */
+        public String buildWord(StringBuilder s);
+
 	}
 	
 	/*
